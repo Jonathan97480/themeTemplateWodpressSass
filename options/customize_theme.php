@@ -23,18 +23,17 @@ add_action('customize_register', function (WP_Customize_Manager $manager) {
     ]);
  */
     /* home Background */
-    /*     $manager->add_setting('background_hero_home', [
-        'default' => get_template_directory_uri() . '/assets/pic/voyage.jpg',
+           /* add ooption change background image  */
+    /* $manager->add_setting('background_image', [
+        'default' => get_template_directory_uri() . '/assets/img/hero-home.jpg',
         'transport' => 'postMessage'
     ]);
 
-    $manager->add_control('background_hero_home', [
+    $manager->add_control(new WP_Customize_Image_Control($manager, 'background_image', [
+        'label' => 'Image de fond',
         'section' => 'hero-home',
-        'seting' => 'background_hero_home',
-        'label' => 'Background Hero Home',
-        'type' => 'url',
-
-    ]); */
+        'settings' => 'background_image',
+    ])); */
 });
 
 
