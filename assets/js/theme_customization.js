@@ -13,6 +13,12 @@
             $('#background_hero_home').attr('src', newVal);
         });
     });
+    
+     wp.customize('background_image', (value) => {
+        value.bind((newVal) => {
+            $('#background_image').css('background-image', 'url('+newVal+')');
+        });
+    });
 
     /* PRESENTATION */
     wp.customize('text_presentation', (value) => {
