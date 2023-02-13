@@ -35,6 +35,24 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('styleCss');
 
     /* Scripts */
+       /*Chargement asynchrone  des scripts*/
+        function add_defer_attribute($tag, $handle)
+    {
+        // ajouter les handles de mes scripts au array ci-dessous. Ici 1 scripts par exemple.
+        $scripts_to_defer = array('appJs' );
+        foreach ($scripts_to_defer as $defer_script) {
+            if (
+                $defer_script === $handle
+            ) {
+                return str_replace(' src', ' async="async" src', $tag);
+            }
+        }
+        return $tag;
+    }
+ 
+    
+    
+    
     wp_register_script('appJs',  get_template_directory_uri() . '/assets/js/script.js', [], false, true);
     wp_enqueue_script('appJs');
 });
